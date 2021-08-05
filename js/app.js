@@ -30,6 +30,7 @@ searchInput.addEventListener("keydown", async (e) => {
     let data = await getWeatherDataByCity(cityName);
     updateCurrentWeather(data);
     console.log(data);
+    searchInput.value = "";
   }
 });
 
@@ -40,18 +41,23 @@ const updateCurrentWeather = (data) => {
   city.textContent = `${data.name},${data.sys.country}`;
   day.textContent = new Date().toLocaleDateString("en-EN", { weekday: "long" });
   humidity.textContent = data.main.humidity;
-  wind.textContent = `${calculateWindDirection(data.wind.degree)} , ${
+  wind.textContent = `${calculateWindDirection(data.wind.deg)} , ${
     data.wind.speed
   }`;
+  pressure.textContent = data.main.pressure;
+  temp.textContent =
+    data.main.temp > 0
+      ? `+${Math.round(data.main.temp)}`
+      : `-${Math.round(data.main.temp)}`;
 };
 
 //caculating wind direction
 const calculateWindDirection = (deg) => {
-  if (deg > 45 && de <= 135) {
+  if (deg > 45 && deg <= 135) {
     return "East";
-  } else if (deg > 135 && de <= 225) {
+  } else if (deg > 135 && deg <= 225) {
     return "South";
-  } else if (deg > 225 && de <= 315) {
+  } else if (deg > 225 && deg <= 315) {
     return "West";
   } else {
     return "North";
