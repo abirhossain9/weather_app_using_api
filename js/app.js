@@ -40,4 +40,20 @@ const updateCurrentWeather = (data) => {
   city.textContent = `${data.name},${data.sys.country}`;
   day.textContent = new Date().toLocaleDateString("en-EN", { weekday: "long" });
   humidity.textContent = data.main.humidity;
+  wind.textContent = `${calculateWindDirection(data.wind.degree)} , ${
+    data.wind.speed
+  }`;
+};
+
+//caculating wind direction
+const calculateWindDirection = (deg) => {
+  if (deg > 45 && de <= 135) {
+    return "East";
+  } else if (deg > 135 && de <= 225) {
+    return "South";
+  } else if (deg > 225 && de <= 315) {
+    return "West";
+  } else {
+    return "North";
+  }
 };
