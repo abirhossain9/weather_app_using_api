@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    background-color: #8ec5fc;
+    background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+}
+.weather {
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 20px 0;
+    box-sizing: border-box;
+    white-space: nowrap;
+}
+.weather__search {
+    width: 25%;
+    padding: 15px 10px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.25);
+    font-size: 20px;
+    color: inherit;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 8px 8px 25px 0px rgba(0, 0, 0, 0.26);
+    transition: all 0.5s ease-in-out;
+}
+.weather__search::placeholder {
+    color: #fff;
+}
+.weather__search:focus {
+    outline: none;
+    background-color: rgba(0, 0, 0, 0.35);
+    /* box-shadow: 5px 5px 15px 0px rgba(0, 0, 0, 0.15); */
+}
+.weather__today {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.weather__image {
+    width: 30vmin;
+    align-self: center;
+}
+.weather__city {
+    font-size: 36px;
+    font-weight: 600;
+    margin: 20px 0;
+}
+.weather__day {
+    font-size: 30px;
+    margin: 10px 0;
+    font-weight: 400;
+}
+.weather__indicator {
+    margin-bottom: 10px;
+}
+.weather__indicator::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    margin-right: 10px;
+}
+.weather__indicator--humidity::before {
+    background-image: url(../images/humidity.png);
+}
+.weather__indicator--wind::before {
+    background-image: url(../images/wind.png);
+}
+.weather__indicator--pressure::before {
+    background-image: url(../images/pressure.png);
+}
+.weather__temperature {
+    font-size: 60px;
+}
+.weather__forecast {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 65px;
+}
+.weather__forecast__icon {
+    max-width: 50%;
+}
+.weather__forecast__item {
+    background-color: rgba(0, 0, 0, 0.075);
+    border-radius: 10px;
+    margin: 0 10px 10px;
+    padding: 30px 5px 20px;
+    box-sizing: border-box;
+    min-width: 150px;
+    width: calc(20% - 20px);
+    flex-grow: 1;
+}
