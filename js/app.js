@@ -18,7 +18,16 @@ const getWeatherDataByCity = async (city) => {
   const endpoint = `${weatherBaseEndpoint}&q=${city}`;
   let request = await fetch(endpoint);
   let data = await request.json();
-  console.log(data);
+  return data;
 };
 
 //getWeatherDataByCity("gulshan");
+
+//search functionality
+searchInput.addEventListener("keydown", async (e) => {
+  const cityName = searchInput.value;
+  if (e.keyCode === 13) {
+    let data = await getWeatherDataByCity(cityName);
+    console.log(data);
+  }
+});
