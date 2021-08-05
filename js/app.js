@@ -9,6 +9,50 @@ const image = document.querySelector(".weather__image");
 const temp = document.querySelector(".weather__temperature>.value");
 const forecastBlock = document.querySelector(".weather__forecast");
 
+//image icons data
+const weatherImages = [
+  {
+    URL: "../images/clear-sky.png",
+    id: [800],
+  },
+  {
+    URL: "../images/broken-clouds.png",
+    id: [803, 804],
+  },
+  {
+    URL: "../images/few-clouds.png",
+    id: [801],
+  },
+  {
+    URL: "../images/mist.png",
+    id: [701],
+  },
+  {
+    URL: "../images/mist.png",
+    id: [701, 711, 721, 731, 741, 751, 761, 761, 771, 781],
+  },
+  {
+    URL: "../images/rain.png",
+    id: [501, 502, 503, 504],
+  },
+  {
+    URL: "../images/scattered-clouds.png",
+    id: [802],
+  },
+  {
+    URL: "../images/shower-rain.png",
+    id: [520, 521, 522, 531, 300, 301, 302, 310, 311, 321],
+  },
+  {
+    URL: "../images/snow.png",
+    id: [600, 601, 602, 611, 612, 613, 615, 616, 620, 621, 622],
+  },
+  {
+    URL: "../images/thunderstorm.png",
+    id: [200, 201, 202, 210, 211, 212, 221, 230, 231, 232],
+  },
+];
+
 //api keys
 let weatherAPIKey = "d6871fcb9cce814f23b29dbb8fe7c079";
 let weatherBaseEndpoint = `https://api.openweathermap.org/data/2.5/weather?units=metric&appid=${weatherAPIKey}`;
