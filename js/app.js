@@ -56,8 +56,11 @@ const weatherImages = [
 //api keys
 let weatherAPIKey = "d6871fcb9cce814f23b29dbb8fe7c079";
 let weatherBaseEndpoint = `https://api.openweathermap.org/data/2.5/weather?units=metric&appid=${weatherAPIKey}`;
+let forecastBaseEndpoint = `https://api.openweathermap.org/data/2.5/forecast?units=metric&appid=${weatherAPIKey}`;
 
-//data fetch from api
+//data fetch from server
+
+//get weather data by city name
 const getWeatherDataByCity = async (city) => {
   const endpoint = `${weatherBaseEndpoint}&q=${city}`;
   let request = await fetch(endpoint);
@@ -65,15 +68,31 @@ const getWeatherDataByCity = async (city) => {
   return data;
 };
 
-//getWeatherDataByCity("gulshan");
-
+//get forecast data by city id
+const getForecastDataByCity = async (id) => {
+  const endpoint = `${forecastBaseEndpoint}&id=${id}`;
+  let result = await fetch(endpoint);
+  const forecast = await result.json();
+  const forecatList = forecast.list;
+  const dailyTemp = [];
+  forecatList.forEach((day) => {
+    let date = new Date(day.dt_txt.replace(" ", "T"));
+    let hours = date.getHours();
+    if (hours === 12) {
+      dailyTemp.push(day);
+    }
+  });
+  console.log(dailyTemp);
+};
 //search functionality
 searchInput.addEventListener("keydown", async (e) => {
   const cityName = searchInput.value;
   if (e.keyCode === 13) {
     let data = await getWeatherDataByCity(cityName);
+    let cityId = data.id;
     updateCurrentWeather(data);
-    console.log(data);
+    getForecastDataByCity(cityId);
+    //console.log(data);
     searchInput.value = "";
   }
 });
@@ -83,7 +102,7 @@ searchInput.addEventListener("keydown", async (e) => {
 //update current weather
 const updateCurrentWeather = (data) => {
   city.textContent = `${data.name},${data.sys.country}`;
-  day.textContent = new Date().toLocaleDateString("en-EN", { weekday: "long" });
+  day.textContent = dayOfWeek();
   humidity.textContent = data.main.humidity;
   wind.textContent = `${calculateWindDirection(data.wind.deg)} , ${
     data.wind.speed
@@ -99,6 +118,10 @@ const updateCurrentWeather = (data) => {
       image.src = obj.URL;
     }
   });
+};
+//calculating day of week
+const dayOfWeek = (dt = new Date().getTime()) => {
+  return new Date().toLocaleDateString("en-EN", { weekday: "long" });
 };
 
 //caculating wind direction
