@@ -12,43 +12,43 @@ const forecastBlock = document.querySelector(".weather__forecast");
 //image icons data
 const weatherImages = [
   {
-    URL: "../images/clear-sky.png",
+    URL: "./images/clear-sky.png",
     ids: [800],
   },
   {
-    URL: "../images/broken-clouds.png",
+    URL: "./images/broken-clouds.png",
     ids: [803, 804],
   },
   {
-    URL: "../images/few-clouds.png",
+    URL: "./images/few-clouds.png",
     ids: [801],
   },
   {
-    URL: "../images/mist.png",
+    URL: "./images/mist.png",
     ids: [701],
   },
   {
-    URL: "../images/mist.png",
+    URL: "./images/mist.png",
     ids: [701, 711, 721, 731, 741, 751, 761, 761, 771, 781],
   },
   {
-    URL: "../images/rain.png",
+    URL: "./images/rain.png",
     ids: [501, 502, 503, 504],
   },
   {
-    URL: "../images/scattered-clouds.png",
+    URL: "./images/scattered-clouds.png",
     ids: [802],
   },
   {
-    URL: "../images/shower-rain.png",
+    URL: "./images/shower-rain.png",
     ids: [520, 521, 522, 531, 300, 301, 302, 310, 311, 321],
   },
   {
-    URL: "../images/snow.png",
+    URL: "./images/snow.png",
     ids: [600, 601, 602, 611, 612, 613, 615, 616, 620, 621, 622],
   },
   {
-    URL: "../images/thunderstorm.png",
+    URL: "./images/thunderstorm.png",
     ids: [200, 201, 202, 210, 211, 212, 221, 230, 231, 232],
   },
 ];
