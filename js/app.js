@@ -28,6 +28,16 @@ searchInput.addEventListener("keydown", async (e) => {
   const cityName = searchInput.value;
   if (e.keyCode === 13) {
     let data = await getWeatherDataByCity(cityName);
+    updateCurrentWeather(data);
     console.log(data);
   }
 });
+
+//render functionality
+
+//update current weather
+const updateCurrentWeather = (data) => {
+  city.textContent = `${data.name},${data.sys.country}`;
+  day.textContent = new Date().toLocaleDateString("en-EN", { weekday: "long" });
+  humidity.textContent = data.main.humidity;
+};
