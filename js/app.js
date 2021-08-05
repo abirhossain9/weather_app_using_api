@@ -1,5 +1,17 @@
+//selectors
+const searchInput = document.querySelector(".weather__search");
+const city = document.querySelector(".weather__city");
+const day = document.querySelector(".weather__day");
+const humidity = document.querySelector(".weather__indicator--humidity>.value");
+const wind = document.querySelector(".weather__indicator--wind>.value");
+const pressure = document.querySelector(".weather__indicator--pressure>.value");
+const image = document.querySelector(".weather__image");
+const temp = document.querySelector(".weather__temperature>.value");
+const forecastBlock = document.querySelector(".weather__forecast");
+
+//api keys
 let weatherAPIKey = "d6871fcb9cce814f23b29dbb8fe7c079";
-let weatherBaseEndpoint = `https://api.openweathermap.org/data/2.5/weather?appid=${weatherAPIKey}`;
+let weatherBaseEndpoint = `https://api.openweathermap.org/data/2.5/weather?units=metric&appid=${weatherAPIKey}`;
 
 //data fetch from api
 const getWeatherDataByCity = async (city) => {
@@ -9,4 +21,4 @@ const getWeatherDataByCity = async (city) => {
   console.log(data);
 };
 
-getWeatherDataByCity("dhaka");
+//getWeatherDataByCity("gulshan");
